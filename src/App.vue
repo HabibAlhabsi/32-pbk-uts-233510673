@@ -23,6 +23,7 @@ const addTask = () => {
 
     <ul>
       <li v-for="task in tasks" :key="task.id">
+        <input type="checkbox" v-model="task.completed" />
         {{  task.task }}
       </li>
     </ul>
