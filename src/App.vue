@@ -14,6 +14,11 @@ const addTask = () => {
     inputTask.value = ''
   }
 }
+
+const removeTask = (taskId) => {
+  tasks.value = tasks.value.filter(task => task.id !== taskId)
+}
+
 </script>
 
 <template>
@@ -24,12 +29,11 @@ const addTask = () => {
     <ul>
       <li v-for="task in tasks" :key="task.id">
         <input type="checkbox" v-model="task.completed" />
-        {{  task.task }}
+        {{ task.task }}
+        <button @click="removeTask(task.id)">Remove</button>
       </li>
     </ul>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
